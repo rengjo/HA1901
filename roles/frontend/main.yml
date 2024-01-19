@@ -1,0 +1,15 @@
+---
+- name: Clone React application from Git
+  git:
+    repo: 'https://github.com/rengjo/wetterapp'
+    dest: /home/ubuntu/myapp
+
+- name: Install application dependencies
+  command: npm install
+  args:
+    chdir: /home/ubuntu/myapp
+
+- name: Start application
+  command: npm start
+  args:
+    chdir: /home/ubuntu/myapp

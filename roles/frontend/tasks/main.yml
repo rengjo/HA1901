@@ -1,0 +1,13 @@
+# roles/frontend/tasks/main.yml
+
+- name: Set npm PATH environment variable
+  command: export PATH=$PATH:/usr/bin
+  environment:
+    PATH: "{{ ansible_env.PATH }}"
+  args:
+    executable: /bin/bash
+
+- name: Install frontend dependencies
+  command: npm install
+  args:
+    chdir: /home/ubuntu/frontend

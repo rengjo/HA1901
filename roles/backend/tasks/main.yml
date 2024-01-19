@@ -1,0 +1,15 @@
+---
+- name: Clone Backend application from Git
+  git:
+    repo: 'https://github.com/rengjo/wetterapp'
+    dest: /home/ubuntu/backend
+
+- name: Install backend dependencies
+  command: npm install
+  args:
+    chdir: /home/ubuntu/backend
+
+- name: Start backend application
+  command: npm start
+  args:
+    chdir: /home/ubuntu/backend
